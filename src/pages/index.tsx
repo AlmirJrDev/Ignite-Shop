@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import { useKeenSlider } from 'keen-slider/react'
-
+import Head from "next/head"
 import { HomeContainer, Product } from "../styles/pages/home"
 
 import 'keen-slider/keen-slider.min.css'
@@ -26,11 +26,18 @@ export default function Home({ products}: HomeProps) {
       spacing: 48,
     }
   })
-  return (
+  return (  
+    <>
+      <Head>
+        <title>Home | Ignite Shop</title>
+      </Head>
+
+
     <HomeContainer ref={sliderRef} className="keen-slider">
+
      {products.map(product =>{
       return (
-        <Link href={`/product/${product.id}`} key={product.id}>
+        <Link href={`/product/${product.id}`} key={product.id} prefetch={false}>
         <Product className="keen-slider__slide">
         <Image src={product.imageUrl} width={520} height={480} alt="product"/>
         <footer>
@@ -42,7 +49,7 @@ export default function Home({ products}: HomeProps) {
       )
      })}
     </HomeContainer>
-    
+    </>
   )
 }
 

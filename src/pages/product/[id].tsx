@@ -4,36 +4,64 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import { stripe } from "../../lib/stripe"
 import Stripe from "stripe"
 import Image from "next/image"
+import axios from "axios"
+import { useState } from "react"
+import Head from "next/head"
 
 interface ProductProps {
-    products: {
+    product: {
         id: string;
         name: string;
         imageUrl: string;
         price: string;
         description: string;
+        defaultPriceId: string;
       }
 }
 
-export default function Product({ products }: ProductProps) {
+export default function Product({ product }: ProductProps) {
+    const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false)
+    async function handleBuyProduct() {
+        try {
+            setIsCreatingCheckoutSession(true);
+
+            const response = await axios.post('/api/checkout', {
+                priceId: product.defaultPriceId
+            })
+
+            const { checkoutUrl } = response.data;
+
+            window.location.href = checkoutUrl
+
+        } catch (err) {
+
+            setIsCreatingCheckoutSession(false);
+            alert('Falha ao redirecionar ao checkout!')
+        }
+    }
    
 
     return (
+        <>
+        <Head>
+        <title>{product.name} | Ignite Shop</title>
+        </Head>
+
         <ProductContainer>
             <ImagemContainer>
-                <Image src={products.imageUrl} width={520} height={480} alt="product"/>
+                <Image src={product.imageUrl} width={520} height={480} alt="product"/>
             </ImagemContainer>
             <ProductDetails>
-                <h1>{products.name}</h1>
-                <span>{products.price}</span>
+                <h1>{product.name}</h1>
+                <span>{product.price}</span>
 
-                <p>{products.description}</p>
+                <p>{product.description}</p>
 
-                <button>Comprar Agora</button>
+                <button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>Comprar Agora</button>
             </ProductDetails>
 
         </ProductContainer>
-
+        </>
     )
 }
 
@@ -42,7 +70,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         paths: [
             { params: { id: 'prod_NeoVepfJBFzQnb' }}
         ],
-        fallback: false,
+        fallback: 'blocking',
     }
 }
     
@@ -65,6 +93,7 @@ export const getStaticProps: GetStaticProps<any, {id: string}> = async ({ params
                 currency: 'BRL',
             }).format(price.unit_amount / 100),
             description: product.description,
+            defaultPriceId: price.id,
         }
     },
     revalidate: 60 * 60 * 1
