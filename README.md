@@ -17,7 +17,6 @@ Este é um projeto de e-commerce construído usando Next.js, Stripe, Keen-Slider
 Para instalar as dependências do projeto, execute o seguinte comando:
 
 
-```bash
 npm install
 ```
 
