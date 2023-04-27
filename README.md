@@ -1,6 +1,5 @@
 
 
-``` markdown
 # E-commerce usando Next.js, Stripe, Keen-Slider, Axios e Stitches
 
 Este é um projeto de e-commerce construído usando Next.js, Stripe, Keen-Slider, Axios e Stitches. A aplicação é uma loja online para venda de produtos, onde os usuários podem navegar pelos produtos, adicionar ao carrinho e realizar pagamentos seguros usando o Stripe.
@@ -16,7 +15,7 @@ Este é um projeto de e-commerce construído usando Next.js, Stripe, Keen-Slider
 
 Para instalar as dependências do projeto, execute o seguinte comando:
 
-
+```
 npm install
 ```
 
