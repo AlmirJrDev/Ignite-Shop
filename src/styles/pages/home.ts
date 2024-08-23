@@ -14,7 +14,7 @@ export const Product = styled('div', {
     borderRadius: 8,
 
     cursor: 'pointer',
-    position: 'relative',
+  
     overflow: 'hidden',
 
     display: 'flex',
@@ -22,6 +22,7 @@ export const Product = styled('div', {
     justifyContent: 'center',
 
     img: {
+   
         objectFit: 'cover',
     },
 

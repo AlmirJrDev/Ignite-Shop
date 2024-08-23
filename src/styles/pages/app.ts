@@ -1,7 +1,9 @@
 import { FileX } from "lucide-react";
 import { styled } from "..";
+import { relative } from "path";
 
 export const Container = styled('div',{
+    
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -10,6 +12,7 @@ export const Container = styled('div',{
 })
 
 export const Header = styled('header', {
+    
     padding: '2rem 0',
     width: '100%',
     maxWidth: 1180,
@@ -26,32 +29,74 @@ export const CardShop = styled('div', {
 })
 
 export const SectionCarShop = styled('section', {
-    backgroundColor: "$gray800",
-    width: '480px,',
-    height: '100%',
     position: 'absolute',
     right: "0px",
     top: "0px",
+    backgroundColor: "$gray800",
+    width: '480px,',
+    height: '100%',
+    zIndex: 1000,
+    padding: "2rem",
+
   
 
+})
+
+export const DivSectionAmountShop = styled('div', {
+    display: "flex",
+    flexDirection: "column",
+
+    div: {
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "0.5rem",
+     
+
+    },
+
+    button: {
+      
+        width: "384px",
+        height: "69px",
+        borderRadius: "8px",
+        border: "none",
+        background: "$green500",
+        color: "$white",
+        fontSize: "18px",
+        fontWeight: "bold"
+    }
 })
 
 export const DivSectionCarShop = styled('div', {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: "1rem",
+    padding: "1rem",
+   
 
 
     div: {
         display: "flex",
         flexDirection: 'column',
+        gap: "1rem",
+
+        p: {
+            fontWeight: "400",
+            fontSize: "18px",
+        },
+        
 
         button: {
             background: "transparent",
             border: "none",
             color: "$green500",
+            cursor: "pointer",
+            width: "1rem"
             
         }
+
+       
     }
   
 
