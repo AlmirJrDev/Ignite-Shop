@@ -10,6 +10,8 @@ import { stripe } from "../lib/stripe"
 import {  GetStaticProps } from "next"
 import Stripe from "stripe"
 import Link from "next/link"
+import { ShoppingBag } from "lucide-react"
+import { ShopBagButton } from "../styles/pages/product"
 
 interface HomeProps {
   products: {
@@ -41,8 +43,14 @@ export default function Home({ products}: HomeProps) {
         <Product className="keen-slider__slide">
         <Image src={product.imageUrl} width={520} height={480} alt="product"/>
         <footer>
+          <div>
           <strong>{product.name}</strong>
+          <br />
           <span>{product.price}</span>
+          </div>
+          <ShopBagButton>
+            <ShoppingBag color="white" />
+          </ShopBagButton>
         </footer>
       </Product>
       </Link>

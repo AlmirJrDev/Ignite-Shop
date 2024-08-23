@@ -25,6 +25,16 @@ export const ImagemContainer = styled('div', {
     img: {
         objectFit: 'cover',
     }
+}) 
+
+export const ShopBagButton = styled('div', {
+    backgroundColor: "$green300",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "56px",
+    height: "56px",
+    borderRadius: "6px",
 })
 
 export const ProductDetails = styled('div', {
