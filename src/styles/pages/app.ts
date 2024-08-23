@@ -1,3 +1,4 @@
+import { FileX } from "lucide-react";
 import { styled } from "..";
 
 export const Container = styled('div',{
@@ -19,6 +20,42 @@ export const Header = styled('header', {
 
     
 })
+export const CardShop = styled('div', {
+    position: 'relative',
+
+})
+
+export const SectionCarShop = styled('section', {
+    backgroundColor: "$gray800",
+    width: '480px,',
+    height: '100%',
+    position: 'absolute',
+    right: "0px",
+    top: "0px",
+  
+
+})
+
+export const DivSectionCarShop = styled('div', {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+
+    div: {
+        display: "flex",
+        flexDirection: 'column',
+
+        button: {
+            background: "transparent",
+            border: "none",
+            color: "$green500",
+            
+        }
+    }
+  
+
+})
 
 export const SpanShop = styled('span', {
     display: "flex",
@@ -29,6 +66,9 @@ export const SpanShop = styled('span', {
     backgroundColor: "$green500",
     position: "absolute",
     borderRadius: "100%",
-    right: "1",
+    right: "-10px",
+    top: "-10px",
+    border: "2px solid $gray900",
+    fontSize: "11px",
 
 })
