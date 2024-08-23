@@ -48,7 +48,8 @@ export default function Home({ products}: HomeProps) {
           <br />
           <span>{product.price}</span>
           </div>
-          <ShopBagButton>
+      
+          <ShopBagButton >
             <ShoppingBag color="white" />
           </ShopBagButton>
         </footer>

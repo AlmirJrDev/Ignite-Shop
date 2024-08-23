@@ -13,4 +13,22 @@ export const Header = styled('header', {
     width: '100%',
     maxWidth: 1180,
     margin: '0 auto',
+
+    display: "flex",
+    justifyContent: "space-between",
+
+    
+})
+
+export const SpanShop = styled('span', {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "24px",
+    height: "24px",
+    backgroundColor: "$green500",
+    position: "absolute",
+    borderRadius: "100%",
+    right: "1",
+
 })
